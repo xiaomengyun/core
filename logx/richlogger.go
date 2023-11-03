@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/xiaomengyun/core/timex"
-	"github.com/xiaomengyun/core/trace"
 	traceio  "go.opentelemetry.io/otel/trace"
 )
 
