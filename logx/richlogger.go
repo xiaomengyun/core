@@ -7,7 +7,27 @@ import (
 
 	"github.com/xiaomengyun/core/timex"
 	"github.com/xiaomengyun/core/trace"
+	traceio  "go.opentelemetry.io/otel/trace"
 )
+
+func SpanIDFromContext(ctx context.Context) string {
+	spanCtx := traceio.SpanContextFromContext(ctx)
+	if spanCtx.HasSpanID() {
+		return spanCtx.SpanID().String()
+	}
+
+	return ""
+}
+
+func TraceIDFromContext(ctx context.Context) string {
+	spanCtx := traceio.SpanContextFromContext(ctx)
+	if spanCtx.HasTraceID() {
+		return spanCtx.TraceID().String()
+	}
+
+	return ""
+}
+
 
 // WithCallerSkip returns a Logger with given caller skip.
 func WithCallerSkip(skip int) Logger {
@@ -168,12 +188,12 @@ func (l *richLogger) buildFields(fields ...LogField) []LogField {
 		return fields
 	}
 
-	traceID := trace.TraceIDFromContext(l.ctx)
+	traceID := TraceIDFromContext(l.ctx)
 	if len(traceID) > 0 {
 		fields = append(fields, Field(traceKey, traceID))
 	}
 
-	spanID := trace.SpanIDFromContext(l.ctx)
+	spanID := SpanIDFromContext(l.ctx)
 	if len(spanID) > 0 {
 		fields = append(fields, Field(spanKey, spanID))
 	}
