@@ -3,7 +3,7 @@ package mapping
 import (
 	"io"
 
-	"github.com/jixiangge/core/encoding"
+	"github.com/xiaomengyun/core/encoding"
 )
 
 // UnmarshalYamlBytes unmarshals content into v.

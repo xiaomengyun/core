@@ -3,7 +3,7 @@ package mapping
 import (
 	"io"
 
-	"github.com/jixiangge/encoding"
+	"github.com/xiaomengyun/core/encoding"
 )
 
 // UnmarshalTomlBytes unmarshals TOML bytes into the given v.

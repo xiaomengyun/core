@@ -10,7 +10,7 @@ import (
 
 	"github.com/xiaomengyun/core/jsonx"
 	"github.com/xiaomengyun/core/mapping"
-	"github.com/xiaomengyun/encoding"
+	"github.com/xiaomengyun/core/encoding"
 )
 
 const (

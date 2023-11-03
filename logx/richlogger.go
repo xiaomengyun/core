@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/jixiangge/core/timex"
-	"github.com/jixiangge/trace"
+	"github.com/xiaomengyun/core/timex"
+	"github.com/xiaomengyun/core/trace"
 )
 
 // WithCallerSkip returns a Logger with given caller skip.
